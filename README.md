@@ -88,12 +88,35 @@ Edit `src/config.py` to adjust:
 
 ## Docker
 
-Build and run the app in a Docker container:
+### Run Inference (Gradio Web App)
+
+Build the lightweight CPU-only inference image:
 
 ```bash
 docker build -t cifar100-app .
 docker run -p 7860:7860 cifar100-app
 ```
+
+Access the app at `http://localhost:7860`
+
+### Train the Model in Docker (with GPU support)
+
+Build the training image with CUDA support:
+
+```bash
+docker build -f Dockerfile.train -t cifar100-train .
+docker run --gpus all -v $(pwd)/models:/app/models cifar100-train
+```
+
+**Note:** Requires NVIDIA Docker runtime for GPU access.
+
+For CPU training:
+```bash
+docker run -v $(pwd)/models:/app/models cifar100-train
+```
+
+Volume mount explanation:
+- `-v $(pwd)/models:/app/models` - Save trained models to your local machine
 
 ## Dependencies
 

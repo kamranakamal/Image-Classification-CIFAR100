@@ -1,8 +1,6 @@
-torch
-torchvision
 torchmetrics
-pandas 
+pandas
 numpy
-PILLOW
+Pillow
 gradio
 uvicorn
