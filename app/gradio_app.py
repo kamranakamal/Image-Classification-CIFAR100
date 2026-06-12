@@ -14,7 +14,7 @@ from src.Helper import load_cifar_classes
 from src.effnet_model import create_effnet
 
 
-model = create_effnet()
+model = create_effnet(weights=False)
 
 project_root = Path(__file__).parent.parent
 model_path = project_root / "models" / "best_model_effnet_0.8267_acc_0.8264_f1score.pth"
@@ -79,4 +79,4 @@ if __name__=="__main__":
         gr.Label(num_top_classes=3, label="Top Predictions"),
         gr.Text(label="Predicted Class"),
         gr.Text(label="Prediction Time")])
-    demo.launch(debug=True, share=False)
+    demo.launch(server_name="0.0.0.0", server_port=7860, debug=True, share=False)
