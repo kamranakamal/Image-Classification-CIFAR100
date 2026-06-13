@@ -15,7 +15,7 @@ def create_effnet(device=device, weights=True):
     else:
         effnet_model = torchvision.models.efficientnet_b0().to(device)
     effnet_model.classifier = nn.Sequential(
-        nn.Dropout(p=0.3, inplace=True),
+        nn.Dropout(p=0.4, inplace=True),
         nn.Linear(in_features=1280, out_features=100, bias=True)
     ).to(device);
     return effnet_model

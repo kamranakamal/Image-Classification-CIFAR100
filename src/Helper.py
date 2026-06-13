@@ -4,6 +4,7 @@ import torch
 import torchvision
 import numpy as np
 from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt
 class EarlyStopping:
     def __init__(self, patience=5, delta=0, verbose=False):
         self.patience = patience
