@@ -17,7 +17,7 @@ from src.effnet_model import create_effnet
 model = create_effnet(weights=False)
 
 project_root = Path(__file__).parent.parent
-model_path = project_root / "models" / "best_model_effnet_0.8267_acc_0.8264_f1score.pth"
+model_path = project_root / "models" / "best_model.pth"
 model.load_state_dict(torch.load(model_path, map_location='cpu'))
 class_names = load_cifar_classes(str(Path(__file__).parent / "classes.txt"))
 
